@@ -1,0 +1,31 @@
+class Solution {
+    public int romanToInt(String s) {
+        
+        int ans=0,var=0,prev=0;
+
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            switch( s.charAt(i))
+            {
+                case 'I': var = 1;break;
+                case 'V': var = 5;break;
+                case 'X': var = 10;break;
+                case 'L': var = 50;break;
+                case 'C': var = 100;break;
+                case 'D': var = 500;break;
+                case 'M': var = 1000;break;
+            }
+
+            if(var>=prev)
+            {
+                ans = ans + var;
+            }
+            else {
+                ans = ans - var;
+            }
+            prev = var;
+        }
+      return ans;
+
+    }
+}
